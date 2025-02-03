@@ -1,0 +1,29 @@
+<div class="tw-w-full">
+  <label (click)="teste()" *ngIf="label" for="{{ name }}"
+    ><p>{{ label }}</p></label
+  >
+  <input
+    id="{{ name }}"
+    name="{{ name }}"
+    [ngClass]="!!errors && touched ? 'tw-border !tw-border-error-20' : ''"
+    class="tw-w-full tw-text-sm md:tw-text-base tw-font-inter tw-border tw-border-grey-light-20 !tw-bg-white tw-px-2 tw-text-dark-blue-50 tw-py-1 tw-rounded-md"
+    type="{{ type }}"
+    [value]="value"
+    (input)="updateValue($event)"
+    (blur)="onTouched()"
+    placeholder="{{ placeholder }}"
+    autocomplete="on"
+  />
+  <p *ngIf="!!errors?.['required'] && touched" class="tw-text-error-20">
+    Campo obrigatório
+  </p>
+  <p *ngIf="!!errors?.['email'] && touched" class="tw-text-error-20">
+    E-mail inválido
+  </p>
+  <p *ngIf="!!errors?.['minLength'] && touched" class="tw-text-error-20">
+    {{'No mínimo '+ errors?.['minLength'].requiredLength + ' caracteres'}}
+  </p>
+  <p *ngIf="!!errors?.['unmatchPassword'] && touched" class="tw-text-error-20">
+    Senhas não coincidem
+  </p>
+</div>

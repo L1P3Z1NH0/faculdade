@@ -1,0 +1,115 @@
+<div>
+  <div class="p-16 h-[90vh] bg-grey-light flex items-center">
+    <div class="w-3/5">
+      <h1 class="font-unica text-dark-blue-60">CARING</h1>
+      <h2 class="font-martian">Guardians</h2>
+    </div>
+    <div>
+      <img
+        class="h-[20rem]"
+        src="../../../../assets//images/logo.png"
+        alt="logo da caring guardians"
+      />
+    </div>
+  </div>
+  <div class="p-16 bg-white">
+    <h3 class="text-black w-1/2">
+      Your relatives were there every step of the way as you grew. Now it's your
+      turn to guard their steps.
+    </h3>
+  </div>
+  <div class="p-16 pb-0 bg-dark-blue-60">
+    <div class="h-[50vh] flex gap-4 mb-10">
+      <img
+        class="w-4/5 rounded-lg object-cover"
+        src="../../../../assets/images/idosos-felizes.png"
+        alt="happy old persons"
+      />
+      <div class="my-auto">
+        <h3 class="text-white mb-2">
+          Everything you need for your relative's safety.
+        </h3>
+        <p class="text-white">
+          Be the caring guardian for your relatives living alone. With us, you
+          can ensure they're safe and sound, from anywhere in the world.
+        </p>
+      </div>
+    </div>
+    <div class="h-[50vh] flex gap-4">
+      <div class="my-auto">
+        <h3 class="text-white mb-2">Our specialised functions</h3>
+        <p class="text-white">
+          From fire alerts to gas leak notifications and crucial fall
+          detections, we’ve got it all covered.
+        </p>
+      </div>
+      <img
+        class="w-4/5 rounded-lg object-cover"
+        src="../../../../assets/images/idoso-machucado.png"
+        alt="sad old person"
+      />
+    </div>
+    <div class="mt-10">
+      <h3 class="text-white">Test our functions</h3>
+      <p class="text-white mb-2 w-1/2">
+        Type your cellphone number bellow to make a call based on the alert
+        type.
+      </p>
+      <div class="mb-4">
+        <form [formGroup]="form">
+          <input
+            formControlName="phone"
+            [ngClass]="
+              this.phone.errors && this.phone.touched
+                ? 'border border-error-20'
+                : ''
+            "
+            class="text-white bg-dark-blue-50 font-martian px-2 py-1 rounded"
+            type="text"
+            placeholder="(11)91234-5678"
+            mask="(00)00000-0000"
+          />
+        </form>
+        <p
+          *ngIf="this.phone.errors && this.phone.touched"
+          class="text-sm text-error-20 mt-1"
+        >
+          Type a cellphone number
+        </p>
+      </div>
+      <ng-container *ngFor="let alert of alerts; let last = last">
+        <div
+          (click)="notify(alert.action)"
+          [class.mb-4]="!last"
+          class="rounded p-1 bg-dark-blue-50 hover:cursor-pointer transition hover:bg-dark-blue-40"
+        >
+          <div class="flex justify-between items-center">
+            <div class="h-10 flex px-2 items-center">
+              <div
+                class="rounded bg-black flex items-center justify-center px-2 gap-4 w-8 h-8 mr-4"
+              >
+                <fa-icon
+                  class="text-grey-light text-xl"
+                  [icon]="['fas', alert.icon]"
+                ></fa-icon>
+              </div>
+              <div>
+                <p class="text-white">{{ alert.title }}</p>
+                <p class="text-white text-sm">{{ alert.message }}</p>
+              </div>
+            </div>
+            <fa-icon
+              class="text-grey-light text-base mr-4"
+              [icon]="['fas', 'chevron-right']"
+            ></fa-icon>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="p-10 bg-dark-blue-60">
+    <p class="text-white text-sm text-center">
+      © 2024 Caring Guardians Inc. All rights reserved.
+    </p>
+  </div>
+</div>

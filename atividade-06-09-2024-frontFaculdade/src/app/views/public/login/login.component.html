@@ -1,0 +1,71 @@
+<app-body>
+  <div
+    class="md:tw-border md:tw-border-grey-light-20 md:tw-p-8 tw-w-fit md:tw-h-fit md:tw-rounded-md md:tw-mx-auto"
+  >
+    <form class="tw-h-full md:tw-h-2/3 tw-flex tw-flex-col" [formGroup]="form">
+      <div
+        class="tw-flex tw-flex-col tw-items-center tw-gap-2 tw-justify-center tw-mb-auto tw-my-0"
+      >
+        <div class="tw-flex tw-flex-col tw-gap-1 tw-items-center">
+          <img
+            class="tw-h-auto tw-w-1/2 tw-object-cover"
+            src="../../../../assets/images/logo.png"
+            alt="logo da caring guardians"
+          />
+          <h5 class="tw-font-martian tw-text-center tw-font-medium">
+            CARING GUARDIANS
+          </h5>
+          <p class="tw-text-md tw-font-unica">ELDER PROTECTION</p>
+        </div>
+
+        <app-input
+          formControlName="email"
+          [name]="'email'"
+          [placeholder]="'email@example.com'"
+          [errors]="this.email.errors"
+          [touched]="this.email.touched"
+        >
+        </app-input>
+
+        <app-input
+          formControlName="password"
+          [name]="'password'"
+          [placeholder]="'senhaSecreta'"
+          [errors]="this.password.errors"
+          [touched]="this.password.touched"
+          [type]="'password'"
+        >
+        </app-input>
+        <!-- <div class="tw-flex tw-justify-between tw-w-full">
+          <div class="tw-flex tw-gap-1">
+            <input id="remember-me" type="checkbox" />
+            <label for="remember-me"
+              ><p class="tw-text-sm tw-font-medium">Lembrar de mim</p></label
+            >
+          </div>
+
+          <p
+            class="tw-cursor-pointer tw-text-primary-40 tw-text-sm tw-font-medium"
+          >
+            Esqueceu a senha?
+          </p>
+        </div> -->
+        <app-button
+          (click)="login()"
+          [disabled]="loading"
+          [width]="'tw-w-full'"
+          [label]="'Entrar'"
+        ></app-button>
+        <div class="tw-flex tw-gap-2 tw-font-medium">
+          <p class="tw-text-sm">Possui cadastro?</p>
+          <p
+            (click)="router.navigateByUrl('/register-user')"
+            class="tw-text-sm tw-text-primary-40 tw-cursor-pointer"
+          >
+            Cadastre-se
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-body>

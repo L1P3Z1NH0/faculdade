@@ -1,0 +1,62 @@
+<app-header [title]="'Registrar usuário'" [navigateTo]="'login'"></app-header>
+<app-body>
+  <div class="">
+    <form
+      class="tw-w-full tw-h-full md:tw-h-2/3 tw-flex tw-flex-col md:tw-px-8 md:tw-py-6 md:tw-border md:tw-border-grey-light-20 md:tw-w-fit md:tw-rounded-md md:tw-mx-auto"
+      [formGroup]="form"
+    >
+      <div
+        class="tw-mt-6 tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-2 tw-justify-center tw-mb-auto md:tw-my-0"
+      >
+        <div class="tw-hidden md:tw-flex tw-flex-col tw-gap-1 tw-items-center">
+          <img
+            class="tw-h-auto tw-w-1/2 tw-object-cover"
+            src="../../../../assets/images/logo.png"
+            alt="logo da caring guardians"
+          />
+          <h5 class="tw-font-martian tw-text-center tw-font-medium">
+            CARING GUARDIANS
+          </h5>
+          <p class="tw-text-l tw-font-unica">ELDER PROTECTION</p>
+        </div>
+
+        <app-input
+          [label]="'E-mail'"
+          formControlName="email"
+          [name]="'email'"
+          [placeholder]="'email@example.com'"
+          [errors]="email.errors"
+          [touched]="email.touched"
+        >
+        </app-input>
+
+        <app-input
+          [label]="'Senha'"
+          formControlName="password"
+          [name]="'password'"
+          [placeholder]="'senhaSecreta'"
+          [touched]="password.touched"
+          [type]="'password'"
+          [errors]="password.errors"
+        >
+        </app-input>
+
+        <app-input
+          [label]="'Confirmar senha'"
+          formControlName="confirmPassword"
+          [name]="'confirmPassword'"
+          [placeholder]="'senhaSecreta'"
+          [errors]="confirmPassword.errors"
+          [touched]="confirmPassword.touched"
+          [type]="'password'"
+        >
+        </app-input>
+        <app-button
+          (click)="register()"
+          [width]="'tw-w-full'"
+          [label]="'Registrar'"
+        ></app-button>
+      </div>
+    </form>
+  </div>
+</app-body>

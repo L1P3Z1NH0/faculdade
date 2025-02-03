@@ -1,0 +1,35 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: "Inter", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+  }
+  h1 {
+    @apply tw-text-4xl md:tw-text-5xl;
+  }
+  h2 {
+    @apply tw-text-3xl md:tw-text-4xl;
+  }
+  h3 {
+    @apply tw-text-2xl md:tw-text-3xl;
+  }
+  h4 {
+    @apply tw-text-xl md:tw-text-2xl;
+  }
+  h5 {
+    @apply tw-text-xl;
+  }
+  p {
+    @apply tw-text-sm md:tw-text-base;
+  }
+}
+
+.ng-select.custom .ng-select-container {
+  @apply tw-h-full tw-w-full tw-text-sm md:tw-text-base tw-font-inter tw-border tw-border-grey-light-20 tw-bg-white tw-px-2 tw-text-dark-blue-50 tw-py-1 tw-rounded-md;
+}

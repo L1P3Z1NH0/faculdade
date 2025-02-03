@@ -1,0 +1,47 @@
+<app-header
+  [showProfile]="true"
+  [title]="'Ações de ajuda'"
+  [hasLogout]="true"
+></app-header>
+<div
+  class="md:tw-border md:tw-border-grey-light-20 md:tw-p-8 w-full md:tw-h-fit md:tw-rounded-md md:tw-mx-auto"
+>
+  <app-body>
+    <form
+      class="tw-h-full md:tw-h-2/3 tw-flex tw-flex-col tw-gap-2 md:tw-w-1/2 md:tw-mx-auto"
+      [formGroup]="form"
+    >
+      <ng-container *ngFor="let action of actions; let last = last">
+        <div
+          (click)="notify(action.value)"
+          class="tw-rounded tw-p-2 tw-bg-dark-blue-50 hover:tw-cursor-pointer tw-transition hover:tw-bg-dark-blue-40"
+        >
+          <div
+            class="tw-h-16 md:tw-h-10 tw-flex md:tw-px-2 tw-items-center tw-justify-between md:tw-justify-start tw-gap-1"
+          >
+            <div
+              class="tw-rounded tw-bg-black tw-flex tw-items-center tw-justify-center tw-px-2 tw-gap-4 tw-w-8 tw-h-8 md:tw-mr-4"
+            >
+              <fa-icon
+                class="tw-text-grey-light-30 tw-text-xl"
+                [icon]="['fas', action.icon]"
+              ></fa-icon>
+            </div>
+            <div>
+              <p class="tw-text-white tw-text-base tw-text-start">
+                {{ action.label }}
+              </p>
+              <p class="tw-hidden md:tw-block tw-text-white tw-text-sm">
+                {{ action.message }}
+              </p>
+            </div>
+            <fa-icon
+              class="tw-text-grey-light-30 tw-text-base tw-p-1 md:tw-mr-4 md:tw-ml-auto"
+              [icon]="['fas', 'chevron-right']"
+            ></fa-icon>
+          </div>
+        </div>
+      </ng-container>
+    </form>
+  </app-body>
+</div>

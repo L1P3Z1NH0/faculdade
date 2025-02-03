@@ -1,0 +1,30 @@
+<div
+  class="tw-flex tw-bg-white tw-items-center tw-p-2 tw-w-full tw-justify-between tw-h-8 tw-sticky tw-top-0 tw-border-b tw-border-grey-light-20"
+>
+  <div
+    class="tw-rounded tw-flex tw-items-center tw-justify-center md:tw-px-2 tw-gap-4"
+  >
+    <fa-icon
+      (click)="
+        hasLogout
+          ? authService.logout()
+          : router.navigateByUrl('/' + navigateTo)
+      "
+      class="tw-text-primary-80 tw-text-base hover:tw-bg-grey-light-20 tw-rounded tw-w-4 tw-h-4 tw-text-center tw-cursor-pointer tw-transition"
+      [ngClass]="{ 'tw-rotate-180': hasLogout }"
+      [icon]="hasLogout ? rightFromBracket : chevronLeft"
+    ></fa-icon>
+  </div>
+  <p class="tw-font-semibold">{{ title }}</p>
+
+  <div
+    (click)="router.navigateByUrl('user-details')"
+    [ngClass]="showProfile ? '' : 'tw-h-4 tw-w-4'"
+  >
+    <fa-icon
+      [ngClass]="showProfile ? 'tw-block' : 'tw-hidden'"
+      class="tw-rounded-full tw-cursor-pointer tw-border-[3.5px] tw-border-primary-80 tw-text-primary-80 tw-text-base tw-h-4 tw-w-4 tw-text-center"
+      [icon]="user"
+    ></fa-icon>
+  </div>
+</div>
